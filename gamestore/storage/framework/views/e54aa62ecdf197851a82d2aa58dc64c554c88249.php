@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>{{ !$config ? '' : $config->judul_web }}</title>
+    <title><?php echo e(!$config ? '' : $config->judul_web); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta content="{{ !$config ? '' : $config->deskripsi_web }}" name="description" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <meta content="<?php echo e(!$config ? '' : $config->deskripsi_web); ?>" name="description" />
     <meta content="SURS" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('') }}{{ !$config ? '' : $config->logo_favicon }}">
+    <link rel="shortcut icon" href="<?php echo e(url('')); ?><?php echo e(!$config ? '' : $config->logo_favicon); ?>">
 
     <!-- plugins -->
     <link href="/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
@@ -45,10 +45,10 @@
         <div class="navbar-custom">
             <div class="container-fluid">
                 <ul class="list-unstyled topnav-menu float-end mb-0">
-                    @auth
+                    <?php if(auth()->guard()->check()): ?>
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{url('')}}/assets/logo/logo-user.png" alt="user-image" class="rounded-circle">
+                            <img src="<?php echo e(url('')); ?>/assets/logo/logo-user.png" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ms-1">
                                 <i class="uil uil-angle-down"></i>
                             </span>
@@ -62,8 +62,8 @@
 
                             <div class="dropdown-divider"></div>
 
-                            <form method="POST" action="{{url('/logout')}}">
-                                @csrf
+                            <form method="POST" action="<?php echo e(url('/logout')); ?>">
+                                <?php echo csrf_field(); ?>
                                 <button type="submit" class="dropdown-item notify-item">
                                     <i data-feather="log-out" class="icon-dual icon-xs me-1"></i><span>Keluar</span>
                                 </button>
@@ -71,7 +71,7 @@
 
                         </div>
                     </li>
-                    @endauth
+                    <?php endif; ?>
 
 
                 </ul>
@@ -80,16 +80,16 @@
                 <div class="logo-box">
                     <a href="#" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="{{ENV('APP_FOOTER')}}" alt="" height="24">
+                            <img src="<?php echo e(ENV('APP_FOOTER')); ?>" alt="" height="24">
                         </span>
                     </a>
 
                     <a href="#" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ENV('APP_FOOTER')}}" alt="" height="24">
+                            <img src="<?php echo e(ENV('APP_FOOTER')); ?>" alt="" height="24">
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ENV('APP_FOOTER')}}" alt="" height="24">
+                            <img src="<?php echo e(ENV('APP_FOOTER')); ?>" alt="" height="24">
                         </span>
                     </a>
                 </div>
@@ -124,30 +124,30 @@
                 <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
                     <div class="collapse navbar-collapse" id="topnav-menu-content">
                         <ul class="navbar-nav">
-                            @guest
+                            <?php if(auth()->guard()->guest()): ?>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('home') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('home')); ?>">
                                     <i data-feather="home"></i>
                                     <span> Halaman utama </span>
                                 </a>
                             </li>
-                            @endguest
-                            @auth
+                            <?php endif; ?>
+                            <?php if(auth()->guard()->check()): ?>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('dashboard') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('dashboard')); ?>">
                                     <i data-feather="home"></i>
                                     <span> Dashboard </span>
                                 </a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('pesanan') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('pesanan')); ?>">
                                     <i data-feather="shopping-bag"></i>
                                     <span> Pesanan</span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('user.deposit') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('user.deposit')); ?>">
                                     <i data-feather="dollar-sign"></i>
                                     <span> Deposit </span>
                                 </a>
@@ -158,8 +158,8 @@
                                     <i data-feather="credit-card"></i> Mutasi <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                    <a href="{{ route('ovo') }}" class="dropdown-item">Mutasi OVO</a>
-                                    <a href="{{ route('gopay') }}" class="dropdown-item">Mutasi GOPAY</a>
+                                    <a href="<?php echo e(route('ovo')); ?>" class="dropdown-item">Mutasi OVO</a>
+                                    <a href="<?php echo e(route('gopay')); ?>" class="dropdown-item">Mutasi GOPAY</a>
                                 </div>
                             </li>
 
@@ -168,9 +168,9 @@
                                     <i data-feather="tool"></i> Konfigurasi <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                    <a href="{{ route('berita') }}" class="dropdown-item">Slide / Banner</a>
-                                    <a href="{{ route('method') }}" class="dropdown-item">Payment</a>
-                                    <a href="{{ url('/setting/web') }}" class="dropdown-item">Website</a>
+                                    <a href="<?php echo e(route('berita')); ?>" class="dropdown-item">Slide / Banner</a>
+                                    <a href="<?php echo e(route('method')); ?>" class="dropdown-item">Payment</a>
+                                    <a href="<?php echo e(url('/setting/web')); ?>" class="dropdown-item">Website</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -178,24 +178,24 @@
                                     <i data-feather="settings"></i> Produk <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                    <a href="{{ route('kategori') }}" class="dropdown-item">Kategori</a>
-                                    <a href="{{ route('layanan') }}" class="dropdown-item">Layanan</a>
-                                    <a href="{{ route('voucher') }}" class="dropdown-item">Voucher</a>
+                                    <a href="<?php echo e(route('kategori')); ?>" class="dropdown-item">Kategori</a>
+                                    <a href="<?php echo e(route('layanan')); ?>" class="dropdown-item">Layanan</a>
+                                    <a href="<?php echo e(route('voucher')); ?>" class="dropdown-item">Voucher</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('member') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(route('member')); ?>">
                                     <i data-feather="user"></i>
                                     <span> Pengguna </span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ url('/pesanan/manual') }}">
+                                <a class="nav-link dropdown-toggle arrow-none" href="<?php echo e(url('/pesanan/manual')); ?>">
                                     <i data-feather="database"></i>
                                     <span> Pesanan Manual </span>
                                 </a>
                             </li>
-                            @endauth
+                            <?php endif; ?>
                         </ul> <!-- end navbar-->
                     </div> <!-- end .collapsed-->
                 </nav>
@@ -211,7 +211,7 @@
 
                 <!-- Start Content-->
                 <div class="container-fluid">
-                    @yield('content')
+                    <?php echo $__env->yieldContent('content'); ?>
                 </div> <!-- container -->
 
             </div> <!-- content -->
@@ -223,7 +223,7 @@
                         <div class="col-md-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> &copy; {{ ENV('APP_NAME') }} by <a href="https://cekstore.com/">CEKSTORE.COM</a>
+                            </script> &copy; <?php echo e(ENV('APP_NAME')); ?> by <a href="https://cekstore.com/">CEKSTORE.COM</a>
                         </div>
                         <div class="col-md-6">
                             <div class="text-md-end footer-links d-none d-sm-block">
@@ -285,4 +285,4 @@
     <!-- third party js ends -->
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/main-admin.blade.php ENDPATH**/ ?>

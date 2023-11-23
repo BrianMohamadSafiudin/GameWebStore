@@ -232,6 +232,7 @@
                 @endif
 				<form action="{{url('/login')}}" method="POST" class="my-form">
 				    @csrf
+            <br>
 					<div class="mb-3">
 						<label>Username/No Handphone</label>
 						<input type="text" class="form-control" autocomplete="off" name="username" required>

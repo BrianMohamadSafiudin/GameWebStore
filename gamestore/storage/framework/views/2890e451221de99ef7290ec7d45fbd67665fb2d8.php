@@ -205,15 +205,7 @@
 </nav>
 <?php endif; ?>
 <div class="content-body">
-            <div class="swiper-container mt-2 mb-2">
-              <div class="swiper-wrapper" id="swiper">
-              	<?php $__currentLoopData = $banner; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                   <div class="swiper-slide">
-                    <img src="<?php echo e($data->path); ?>">
-                </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                              </div>
-            </div>
+            
                 
             <section class="px-2 mt-5" style="">
                 <h4 class="mb-2 text-white" style="font-size: 1.7rem;">Top Up Games</h4>
@@ -276,29 +268,29 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 
 <script>
-var swiper = new Swiper('.swiper-container', {
-  effect: 'coverflow',
-  grabCursor: true,
-  loop: true,
-  centeredSlides: true,
-  spaceBetween: 1,
-  slidesPerView: 'auto',
-  coverflow: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows : true
-  },
-  pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-});
+// var swiper = new Swiper('.swiper-container', {
+//   effect: 'coverflow',
+//   grabCursor: true,
+//   loop: true,
+//   centeredSlides: true,
+//   spaceBetween: 1,
+//   slidesPerView: 'auto',
+//   coverflow: {
+//     rotate: 50,
+//     stretch: 0,
+//     depth: 100,
+//     modifier: 1,
+//     slideShadows : true
+//   },
+//   pagination: {
+//         el: ".swiper-pagination",
+//         clickable: true,
+//       },
+//   autoplay: {
+//     delay: 2500,
+//     disableOnInteraction: false,
+//   },
+// });
 
 </script>
 

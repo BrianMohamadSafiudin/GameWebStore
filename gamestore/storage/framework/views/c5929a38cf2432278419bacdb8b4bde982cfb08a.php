@@ -2,13 +2,11 @@
 
 
 <style>
-    .accordion-button {
-            box-shadow: none !important;
-        }
-        
-        .product .box {
-            margin-bottom: 40px;
-        }
+    .btn:disabled{background:#8ba4b1;border-color:#8ba4b1}
+    
+    .box-profile{margin-top:-270px}
+    .box-profile .body{border-radius:24px;height:425px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1) , 0 4px 6px -2px rgba(0,0,0,.05)}
+    .box-profile .body .img{width:100px;height:100px;border-radius:50%;text-align:center;line-height:100px;border:2px solid #fff;margin:-50px auto;font-size:22px}
 </style>
 
 
@@ -200,63 +198,51 @@
 </nav>
 <?php endif; ?>
 <div class="content-body">
-			<div class="col-lg-6 mx-auto px-3 pt-3 mb-3">
-			    <?php if(session('error')): ?>
-			    
-			    <div class="alert alert-danger">
-			       <ul>
-			           <li><?php echo e(session('error')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if(session('success')): ?>
-			    
-			    <div class="alert alert-success">
-			       <ul>
-			           <li><?php echo e(session('success')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if($errors->any()): ?>
-                    <div class="alert alert-danger">
-                        <ul>
-                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><?php echo e($error); ?></li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
-				<form action="<?php echo e(url('/login')); ?>" method="POST" class="my-form">
-				    <?php echo csrf_field(); ?>
-            <br>
-					<div class="mb-3">
-						<label>Username/No Handphone</label>
-						<input type="text" class="form-control" autocomplete="off" name="username" required>
+			
+			<div class="col-lg-6 mx-auto px-3 py-5 mt-4 box-profile">
+				<div class="bg-card p-2 body">
+				    <a href="<?php echo e(url('/riwayat-pembelian')); ?>">
+					    <i class="mdi mdi-history float-start mx-3" style="font-size: 22px;color: #fff;"></i>
+					</a>
+					<div class="bg text-white img">Halo</div>
+					<a href="<?php echo e(url('/user/edit/profile')); ?>">
+						<i class="float-end me-3 mdi mdi-settings" style="font-size: 24px;color: #fff;"></i>
+					</a>
+					<div class="text-center" style="margin-top: 65px;">
+						<h1><?php echo e(Str::title(Auth()->user()->name)); ?></h1>
+						<hr style="border-color: #d5d5d5;">
+						<h5>Saldo</h5>
+						<h3 class="fw-bold">Rp <?php echo e(number_format(Auth::user()->balance, 0, ',', '.')); ?>,-</h3>
+						<span class="d-inline-block py-1 px-2 rounded bg-warning text-dark" style="font-size: 12px;">Member</span>
 					</div>
-					<div class="mb-3">
-						<label>Password</label>
-						<input type="password" class="form-control" name="password" required>
-					</div>
-					<div class="row mt-3">
-						<div class="col-6">
-							<div class="form-check">
-								<input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
-									Remember me
-								</label>
-							</div>
+					<div class="row px-4 mt-5">
+						<div class="col-8 color">
+							<a href="<?php echo e(url('/deposit')); ?>" class="text-decoration-none text-white">
+								Top Up Saldo
+							</a>
 						</div>
-						<div class="col-6 text-end">
-							<a class="text-decoration-none text-danger" href="<?php echo e(url('/forgot-password')); ?>">Forgot password?</a>
+						<div class="col-4 text-end">
+							<a href="<?php echo e(url('/deposit')); ?>" class="text-decoration-none">
+								<i class="text-white mdi mdi-arrow-right" style="font-size: 20px;"></i>
+							</a>
 						</div>
 					</div>
-					<div class="mt-3">
-						<button class="btn btn-primary w-100" type="submit" name="tombol" value="submit"><i class="mdi mdi-exit-to-app mr-1"></i> Sign In</button>
+					<div class="row px-4 mt-1">
+						<div class="col-8 color">
+							<a href="<?php echo e(url('/membership')); ?>" class="text-decoration-none text-white">
+								Membership
+							</a>
+						</div>
+						<div class="col-4 text-end">
+							<a href="<?php echo e(url('/membership')); ?>" class="text-decoration-none">
+								<i class="text-white mdi mdi-arrow-right" style="font-size: 20px;"></i>
+							</a>
+						</div>
 					</div>
-					<p class="mt-3">Belum memiliki akun? <a href="<?php echo e(url('/register')); ?>" class="text-decoration-none text-primary">Daftar sekarang!</a></p>
-				</form>
+					<div class="text-center mt-4 mb-3">
+						<button onclick="logout();" class="bg-white border-0 text-danger fw-500">Logout</button>
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -267,12 +253,16 @@
 
 
 
-
-
-
 <?php $__env->startPush('custom_script'); ?>
 
+<script>
+			var modal_logout = new bootstrap.Modal(document.getElementById('modal-logout'));
 
+			function logout() {
+				modal_logout.show();
+			}
+		</script>
+		
 
 <?php $__env->stopPush(); ?>
 
@@ -280,5 +270,4 @@
 
 
 <?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/dashboard.blade.php ENDPATH**/ ?>

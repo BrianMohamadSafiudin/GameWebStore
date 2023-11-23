@@ -1,14 +1,10 @@
+
+
 <?php $__env->startSection('custom_style'); ?>
 
 
 <style>
-    .accordion-button {
-            box-shadow: none !important;
-        }
-        
-        .product .box {
-            margin-bottom: 40px;
-        }
+    .btn:disabled{background:#8ba4b1;border-color:#8ba4b1}
 </style>
 
 
@@ -200,21 +196,13 @@
 </nav>
 <?php endif; ?>
 <div class="content-body">
-			<div class="col-lg-6 mx-auto px-3 pt-3 mb-3">
-			    <?php if(session('error')): ?>
+									<div class="px-3 pt-3 mb-3">
+				<h2 class="mb-4">Cek Pesanan anda</h2>
+				<?php if(session('error')): ?>
 			    
 			    <div class="alert alert-danger">
 			       <ul>
 			           <li><?php echo e(session('error')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if(session('success')): ?>
-			    
-			    <div class="alert alert-success">
-			       <ul>
-			           <li><?php echo e(session('success')); ?></li>
 			       </ul>
 			    </div>
 			    
@@ -228,42 +216,25 @@
                         </ul>
                     </div>
                 <?php endif; ?>
-				<form action="<?php echo e(url('/login')); ?>" method="POST" class="my-form">
+				<form action="<?php echo e(url('/cari')); ?>" method="POST" class="my-form">
 				    <?php echo csrf_field(); ?>
-            <br>
 					<div class="mb-3">
-						<label>Username/No Handphone</label>
-						<input type="text" class="form-control" autocomplete="off" name="username" required>
-					</div>
-					<div class="mb-3">
-						<label>Password</label>
-						<input type="password" class="form-control" name="password" required>
-					</div>
-					<div class="row mt-3">
-						<div class="col-6">
-							<div class="form-check">
-								<input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
-									Remember me
-								</label>
-							</div>
-						</div>
-						<div class="col-6 text-end">
-							<a class="text-decoration-none text-danger" href="<?php echo e(url('/forgot-password')); ?>">Forgot password?</a>
-						</div>
+						<label>No Invoice</label>
+						<input type="text" class="form-control" placeholder="INVxxxxxxRM" name="id" autocomplete="off" required>
 					</div>
 					<div class="mt-3">
-						<button class="btn btn-primary w-100" type="submit" name="tombol" value="submit"><i class="mdi mdi-exit-to-app mr-1"></i> Sign In</button>
+						<button class="btn btn-primary w-100" type="submit"><i class="mdi mdi-shopping mr-1"></i> Check Pesanan</button>
 					</div>
-					<p class="mt-3">Belum memiliki akun? <a href="<?php echo e(url('/register')); ?>" class="text-decoration-none text-primary">Daftar sekarang!</a></p>
 				</form>
+				
+				
 			</div>
-		</div>
+			
+					</div>
 		
         
-
-
-
+        
+        
 
 
 
@@ -280,5 +251,4 @@
 
 
 <?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/history.blade.php ENDPATH**/ ?>

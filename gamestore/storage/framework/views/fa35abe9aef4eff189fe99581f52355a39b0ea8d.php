@@ -540,7 +540,7 @@
 <!---live chat-->
 <div class="fab-container">
     <div class="fab fab-icon-holder"  style="background-color: #fff;">
-        <img src="https://mogame.my.id/upload/callcenter.png" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+        <img src="http://127.0.0.1:8000/assets/logo/logo-header.png" style="width: 100%; height: auto; display: block; margin: 0 auto;">
     </div>
     <ul class="fab-options">
         <li>

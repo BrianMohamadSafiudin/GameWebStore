@@ -1,14 +1,15 @@
+
+
 <?php $__env->startSection('custom_style'); ?>
 
 
 <style>
-    .accordion-button {
-            box-shadow: none !important;
-        }
-        
-        .product .box {
-            margin-bottom: 40px;
-        }
+    .accordion-button{box-shadow:none!important}
+    .btn:disabled{background:#8ba4b1;border-color:#8ba4b1}
+    
+    .box-profile{margin-top:-300px}
+    .box-profile .body{border-radius:24px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1) , 0 4px 6px -2px rgba(0,0,0,.05)}
+    .my-form div small{color:#718096}
 </style>
 
 
@@ -201,69 +202,105 @@
 <?php endif; ?>
 <div class="content-body">
 			<div class="col-lg-6 mx-auto px-3 pt-3 mb-3">
-			    <?php if(session('error')): ?>
+				<div class="">
+					<form action="<?php echo e(url('/deposit')); ?>" method="POST" class="my-form px-3 mt-3">
+					    <?php echo csrf_field(); ?>
+						<h5 class="text-center mb-4">Top Up Saldo</h5>
+						
+						 <?php if($errors->any()): ?>
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <?php if(session('success')): ?>
 			    
-			    <div class="alert alert-danger">
-			       <ul>
-			           <li><?php echo e(session('error')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if(session('success')): ?>
-			    
-			    <div class="alert alert-success">
-			       <ul>
-			           <li><?php echo e(session('success')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if($errors->any()): ?>
-                    <div class="alert alert-danger">
-                        <ul>
-                            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><?php echo e($error); ?></li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
-				<form action="<?php echo e(url('/login')); ?>" method="POST" class="my-form">
-				    <?php echo csrf_field(); ?>
-            <br>
-					<div class="mb-3">
-						<label>Username/No Handphone</label>
-						<input type="text" class="form-control" autocomplete="off" name="username" required>
-					</div>
-					<div class="mb-3">
-						<label>Password</label>
-						<input type="password" class="form-control" name="password" required>
-					</div>
-					<div class="row mt-3">
-						<div class="col-6">
-							<div class="form-check">
-								<input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
-									Remember me
-								</label>
-							</div>
+        			    <div class="alert alert-success">
+        			       <ul>
+        			           <li><?php echo e(session('success')); ?></li>
+        			       </ul>
+        			    </div>
+        			    
+        			    <?php endif; ?>
+						
+						<p>Pilih Metode Pembayaran</p>
+						
+						<div class="mb-3">
+							<select class="form-control" name="metode" required>
+                                            <option value="BCA">BCA(MANUAL)</option>
+                                            <option value="OVO">OVO(MANUAL)</option>
+                                            <option value="GOPAY">GOPAY(MANUAL)</option>
+                                            <option value="DANA">DANA(MANUAL)</option>
+                                            <option value="SHOPEPAY">SHOPEPAY(MANUAL)</option>
+                                            <option value="BRI">BRI(MANUAL)</option>
+                            </select>
 						</div>
-						<div class="col-6 text-end">
-							<a class="text-decoration-none text-danger" href="<?php echo e(url('/forgot-password')); ?>">Forgot password?</a>
+						
+						<p>Masukan nominal Top Up</p>
+						
+						<div class="mb-2">
+							<input type="number" class="form-control" autocomplete="off" name="jumlah" placeholder="Nominal Top Up" required>
 						</div>
-					</div>
-					<div class="mt-3">
-						<button class="btn btn-primary w-100" type="submit" name="tombol" value="submit"><i class="mdi mdi-exit-to-app mr-1"></i> Sign In</button>
-					</div>
-					<p class="mt-3">Belum memiliki akun? <a href="<?php echo e(url('/register')); ?>" class="text-decoration-none text-primary">Daftar sekarang!</a></p>
-				</form>
+						 <button class="btn btn-primary w-100 mb-3" type="submit" name="tombol" value="submit">Top Up</button>
+						<span class="d-block mb-3">
+				            <a class="btn btn-success btn-sm" href="<?php echo e(!$config ? '' : $config->url_wa); ?>">KONFIRMASI ADMIN</a>
+				        </span>
+					</form>
+					
+					
+					 <div class="table-responsive">
+                            <table class="table m-o table-bordered text-nowrap text-white">
+                                <thead class="bg-none">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Jumlah</th>
+                                        <th>Metode</th>
+                                        <th>No Pembayaran</th>
+                                        <th>Status</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+                        		<?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pesanan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <?php
+                                    $zone = $pesanan->zone != null ? "-".$pesanan->zone : "";
+                                    $label_pesanan = '';
+                                    
+                                    if($pesanan->status == "Pending" || $pesanan->status == "Batal"){
+                                        $label_pesanan = 'warning';
+                                    }else if($pesanan->status == "Processing"){
+                                        $label_pesanan = 'info';
+                                    }else if($pesanan->status == "Success"){
+                                        $label_pesanan = 'success';
+                                    }else{
+                                        $label_pesanan = 'danger';
+                                    }
+                                ?>                        		
+                        		<tr>
+                        			<td><?php echo e($pesanan->id); ?></td>
+                        			<td>Rp <?php echo e(number_format($pesanan->jumlah,0,',','.')); ?></td>
+                        			<td><?php echo e($pesanan->metode); ?></td>
+                        			<td><?php echo $pesanan->metode != "QRIS" ? $pesanan->no_pembayaran : '<a class="btn btn-primary" href="/assets/qrisdepo.png" target="_blank">Lihat QR</a>'; ?></td>
+                        			<td><span class="badge bg-<?php echo e($label_pesanan); ?>"><?php echo e($pesanan->status); ?></span></td>
+                        			<td><?php echo e($pesanan->created_at); ?></td>
+                        		</tr>
+                        		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        		<tr>
+                        			<td align="center" colspan="6">Tidak ada riwayat</td>
+                        		</tr>
+                        		<?php endif; ?>
+                        	</table>
+                        </div>
+				</div>
 			</div>
 		</div>
 		
         
 
-
-
+        
 
 
 
@@ -280,5 +317,4 @@
 
 
 <?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/deposit.blade.php ENDPATH**/ ?>

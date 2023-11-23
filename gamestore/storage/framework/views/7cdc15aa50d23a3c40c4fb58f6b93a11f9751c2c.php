@@ -5,7 +5,6 @@
     .accordion-button {
             box-shadow: none !important;
         }
-        
         .product .box {
             margin-bottom: 40px;
         }
@@ -200,26 +199,11 @@
 </nav>
 <?php endif; ?>
 <div class="content-body">
+    
 			<div class="col-lg-6 mx-auto px-3 pt-3 mb-3">
-			    <?php if(session('error')): ?>
-			    
-			    <div class="alert alert-danger">
-			       <ul>
-			           <li><?php echo e(session('error')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if(session('success')): ?>
-			    
-			    <div class="alert alert-success">
-			       <ul>
-			           <li><?php echo e(session('success')); ?></li>
-			       </ul>
-			    </div>
-			    
-			    <?php endif; ?>
-			    <?php if($errors->any()): ?>
+				<h2>Halo, mari bergabung</h2>
+				<p class="mb-2">Buat akun sekarang dan rasakan fitur fitur yang menarik. ✌️</p>
+				<?php if($errors->any()): ?>
                     <div class="alert alert-danger">
                         <ul>
                             <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -228,39 +212,34 @@
                         </ul>
                     </div>
                 <?php endif; ?>
-				<form action="<?php echo e(url('/login')); ?>" method="POST" class="my-form">
-				    <?php echo csrf_field(); ?>
-            <br>
+								<form action="<?php echo e(url('/register')); ?>" method="POST" class="my-form">
+				    <?php echo csrf_field(); ?>					
+                     <div class="mb-3">
+						<label>Nama Lengkap</label>
+						<input type="text" class="form-control" placeholder="Nama Lengkap" autocomplete="off" name="nama" required>
+					</div>
 					<div class="mb-3">
-						<label>Username/No Handphone</label>
-						<input type="text" class="form-control" autocomplete="off" name="username" required>
+						<label>Username</label>
+						<input type="text" class="form-control" placeholder="Username" autocomplete="off" name="username" required>
 					</div>
 					<div class="mb-3">
 						<label>Password</label>
-						<input type="password" class="form-control" name="password" required>
+						<input type="password" class="form-control" placeholder="Password" autocomplete="off" name="password" required>
 					</div>
-					<div class="row mt-3">
-						<div class="col-6">
-							<div class="form-check">
-								<input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-								<label class="form-check-label" for="flexCheckDefault">
-									Remember me
-								</label>
-							</div>
-						</div>
-						<div class="col-6 text-end">
-							<a class="text-decoration-none text-danger" href="<?php echo e(url('/forgot-password')); ?>">Forgot password?</a>
-						</div>
+					<div class="mb-3">
+						<label>Nomor Whatsapp</label>
+						<input type="number" class="form-control" placeholder="Nomor Whatsapp" autocomplete="off" name="no_wa" required>
 					</div>
 					<div class="mt-3">
-						<button class="btn btn-primary w-100" type="submit" name="tombol" value="submit"><i class="mdi mdi-exit-to-app mr-1"></i> Sign In</button>
+						<button class="btn btn-primary w-100" type="submit" name="tombol" value="submit">Mendaftar</button>
 					</div>
-					<p class="mt-3">Belum memiliki akun? <a href="<?php echo e(url('/register')); ?>" class="text-decoration-none text-primary">Daftar sekarang!</a></p>
+					<p class="mt-3">Sudah memiliki akun ? <a href="<?php echo e(url('/login')); ?>" class="text-decoration-none text-primary">Login!</a></p>
 				</form>
 			</div>
 		</div>
 		
-        
+         
+
 
 
 
@@ -281,4 +260,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('template.template', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\GameWebStore\gamestore\resources\views/template/register.blade.php ENDPATH**/ ?>
