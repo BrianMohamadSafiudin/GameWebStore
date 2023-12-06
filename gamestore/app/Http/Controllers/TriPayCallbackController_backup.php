@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use App\Models\Pembayaran;
 use App\Models\Pembelian;
 use App\Models\Layanan;
@@ -20,7 +22,7 @@ class TriPayCallbackController extends Controller
 {
     public function handle(Request $request)
     {
-        $api = \DB::table('setting_webs')->where('id',1)->first();
+        $api = DB::table('setting_webs')->where('id',1)->first();
         
         $callbackSignature = $request->server('HTTP_X_CALLBACK_SIGNATURE');
         $json = $request->getContent();
@@ -243,7 +245,7 @@ class TriPayCallbackController extends Controller
     
     public function msg($nomor, $msg)
     {
-        $api = \DB::table('setting_webs')->where('id',1)->first();
+        $api = DB::table('setting_webs')->where('id',1)->first();
         
         $data = [
             'token' => $api->wa_key,

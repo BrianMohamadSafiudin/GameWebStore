@@ -459,6 +459,7 @@
 
                 
                 <div class="col-md-3 col-lg-4 p-4">
+                    <br><br><br><br>
                   <h5 class="mt-2 mb-1">Metode Pembayaran</h5>
                   <div class="mt-3">
                     <img src="/assets/payment/qris.webp" class="kbrstore-pgimg">
@@ -482,42 +483,28 @@
                 </div>
             </div>
             <div class="col-md-3 col-lg-2 p-4">
+                <br><br><br><br>
               <h5 class="mt-2 mb-1">Site Map</h5>
               <div class="mt-3">
                  <?php if(Auth::check()): ?>
                  <?php if(Auth()->user()->role == 'Member' || Auth()->user()->role == 'Platinum' || Auth()->user()->role == 'Gold'): ?>
                  <i class="fa-solid fa-house"></i><a href="<?php echo e(url('')); ?>" class="text-white text-decoration-none active"> Home</a><br>
-                 <i class="fa-solid fa-magnifying-glass"></i><a href="<?php echo e(url('/cari')); ?>" class="text-white text-decoration-none ">
-                 Cek Pesanan</a><br>
-                 
-                 <i class="fa fa-list"></i><a href="<?php echo e(url('/daftar-harga')); ?>" class="text-white text-decoration-none ">
-                 Daftar Harga</a><br>
-                 
-                 <i class="fa-solid fa-clock-rotate-left"></i><a href="<?php echo e(url('/riwayat-pembelian')); ?>" class="text-white text-decoration-none ">
-                 Riwayat Pembelian</a><br>
-                 <i class="fa-solid fa-wallet"></i><a href="<?php echo e(url('/deposit')); ?>" class="text-white text-decoration-none ">
-                 Top Up Saldo</a><br>
                  <i class="fa-solid fa-user-pen"></i><a href="<?php echo e(url('/user/edit/profile')); ?>" class="text-white text-decoration-none ">
                  Edit Profile</a><br>
-                 <i class="fa-solid fa-circle-up"></i><a href="<?php echo e(url('/membership')); ?>" class="text-white text-decoration-none ">
-                 Upgrade Membership</a><br>
                  <?php else: ?>
                  <i class="fa-solid fa-house"></i><a href="<?php echo e(url('')); ?>" class="text-white text-decoration-none active"> Home</a><br>
-                 <i class="fa-solid fa-magnifying-glass"></i><a href="<?php echo e(url('/cari')); ?>" class="text-white text-decoration-none ">
-                 Cek Pesanan</a><br>
                  <i class="fa fa-list"></i><a href="<?php echo e(url('/daftar-harga')); ?>" class="text-white text-decoration-none ">
                  Daftar Harga</a><br>
                  <?php endif; ?>
                  <?php else: ?>
                  <i class="fa-solid fa-house"></i><a href="<?php echo e(url('')); ?>" class="text-white text-decoration-none active"> Home</a><br>
-                 <i class="fa-solid fa-magnifying-glass"></i><a href="<?php echo e(url('/cari')); ?>" class="text-white text-decoration-none ">
-                 Cek Pesanan</a><br>
                  <i class="fa fa-list"></i><a href="<?php echo e(url('/daftar-harga')); ?>" class="text-white text-decoration-none ">
                  Daftar Harga</a><br>
                  <?php endif; ?>
              </div>
          </div>
          <div class="col-md-3 col-lg-2 p-4">
+            <br><br><br><br>
           <h5 class="mt-2 mb-1">Hubungi Kami</h5>
           <div class="mt-3">
            <i class="fab fa-whatsapp"></i><a href="<?php echo e(!$config ? '' : $config->url_wa); ?>" target="_blank" class="text-white text-decoration-none"> WhatsApp</a><br>
@@ -531,7 +518,7 @@
     <div class="row" id="footer-credit">
       <div class="col">
         <div class="container mt-2 mb-2 text-center">
-          <small>Copyright © 2023 <a href="<?php echo e(url('')); ?>" class="text-white text-decoration-none"><?php echo e(ENV('APP_NAME')); ?></a> All Rights Reserved</small>
+          <small>Copyright © 2023 <a href="<?php echo e(url('')); ?>" class="text-white text-decoration-none">Game Web Store TM</a> All Rights Reserved</small>
       </div>
   </div>
 </div>
@@ -540,7 +527,7 @@
 <!---live chat-->
 <div class="fab-container">
     <div class="fab fab-icon-holder"  style="background-color: #fff;">
-        <img src="http://127.0.0.1:8000/assets/logo/logo-header.png" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+        <img src="<?php echo e(url('')); ?><?php echo e(!$config ? '' : $config->logo_footer); ?>" style="width: 100%; height: auto; display: block; margin: 0 auto;">
     </div>
     <ul class="fab-options">
         <li>

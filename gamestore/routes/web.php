@@ -72,7 +72,7 @@ Route::post('/login',                                           [LoginController
 Route::get('/register',                                         [RegisterController::class, 'create'])->name('register');
 Route::post('/register',                                         [RegisterController::class, 'store'])->name('post.register');
 
-Route::post('/callback',                                    [TriPayCallbackController::class, 'handle']);
+Route::get('/callback',                                    [TriPayCallbackController::class, 'handle']);
 
 Route::middleware(['auth'])->group(function(){
     Route::post('/logout',                                  [LoginController::class, 'destroy'])->name('logout');

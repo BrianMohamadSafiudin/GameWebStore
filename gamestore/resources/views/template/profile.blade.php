@@ -56,19 +56,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
-          </li>
-                    <li class="nav-item">
-            <a class="nav-link" href="{{url('/riwayat-pembelian')}}"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Pembelian</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/deposit')}}"><i class="fa-solid fa-wallet"></i> Top Up Saldo</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/membership')}}"><i class="fa-solid fa-circle-up"></i> Upgrade Membership</a>
           </li>
           <div class="card bg-card mt-2 mb-2">
             <div class="card-body">
@@ -87,7 +75,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -129,7 +117,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Dashboard</a>
@@ -140,7 +128,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -184,7 +172,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
@@ -195,7 +183,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
          <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Login</a>
 </div>
   </div>
@@ -227,6 +215,7 @@
 				       <form action="{{url('/user/edit/profile')}}" method="POST" class="my-form px-3 mt-3">
 					    @csrf
                         <div class="mb-3">
+                          <br><br>
 							<label>Nama Lengkap</label>
 							<input type="text" class="form-control" autocomplete="off" value="{{Auth()->user()->name}}" name="name" required>
 						</div>

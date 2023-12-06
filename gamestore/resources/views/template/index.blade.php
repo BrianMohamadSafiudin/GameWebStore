@@ -59,25 +59,12 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
-          </li>
-                    <li class="nav-item">
-            <a class="nav-link" href="{{url('/riwayat-pembelian')}}"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Pembelian</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/deposit')}}"><i class="fa-solid fa-wallet"></i> Top Up Saldo</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/membership')}}"><i class="fa-solid fa-circle-up"></i> Upgrade Membership</a>
           </li>
           <div class="card bg-card mt-2 mb-2">
             <div class="card-body">
                 <span class="py-1 px-2 float-end rounded bg-warning text-dark" style="font-size: 12px;">{{Str::title(Auth()->user()->role)}}</span>
                 <h5 class="card-title">{{Str::title(Auth()->user()->name)}}</h5>
-                <p class="card-text">Rp {{ number_format(Auth::user()->balance, 0, ',', '.') }}</p>
              </div>
           </div>
                     
@@ -90,7 +77,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -132,7 +119,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Dashboard</a>
@@ -143,7 +130,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -187,7 +174,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
@@ -198,7 +185,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
          <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Login</a>
 </div>
   </div>
@@ -237,7 +224,7 @@
                     
                 </div>
             </section>        
-            <section class="px-2 mt-5" style="">
+            {{-- <section class="px-2 mt-5" style="">
                 <h4 class="mb-2 text-white" style="font-size: 1.7rem;">Joki MLBB</h4>
                 <div class="product row mt-4">
                     
@@ -258,7 +245,7 @@
                     @endforeach             
                     
                 </div>
-            </section>        
+            </section>         --}}
           
         </div>    
         

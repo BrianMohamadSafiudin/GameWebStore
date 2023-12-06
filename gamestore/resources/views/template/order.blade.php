@@ -228,19 +228,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
-          </li>
-                    <li class="nav-item">
-            <a class="nav-link" href="{{url('/riwayat-pembelian')}}"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Pembelian</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/deposit')}}"><i class="fa-solid fa-wallet"></i> Top Up Saldo</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/membership')}}"><i class="fa-solid fa-circle-up"></i> Upgrade Membership</a>
           </li>
           <div class="card bg-card mt-2 mb-2">
             <div class="card-body">
@@ -259,7 +247,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -301,7 +289,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Dashboard</a>
@@ -312,7 +300,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="{{url('/dashboard')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -356,7 +344,7 @@
             <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
@@ -367,7 +355,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="{{url('')}}"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="{{url('/cari')}}"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="{{url('/user/edit/profile')}}"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
          <a class="nav-link" href="{{url('/login')}}"><i class="fa-solid fa-arrow-right-to-bracket""></i> Login</a>
 </div>
   </div>
@@ -375,8 +363,10 @@
 @endif
 <div class="content-body">
         <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4">            
+            <br><br><br>
             <div class="card bg-card border-0 mb-4 shadow-form">
+                <br><br><br>
                 <div class="games-banner rounded-top"></div>
         		<div class="col-12 px-3 pb-2">
         			<img src="{{ $kategori->thumbnail  }}" alt="" width="100" class="float-start mr-2" style="border-radius: 16px; margin-top: -50px;">
@@ -394,6 +384,8 @@
             <input type="hidden" id="nominal">
             <input type="hidden" id="metode">
             <input type="hidden" id="ktg_tipe" value="{{$kategori->tipe}}">
+
+            <br><br><br>
         	
         <div class="card bg-card border-0 mb-4 shadow-form">
     			<div class="px-3 py-3">
@@ -761,246 +753,16 @@
 				</div>
 			</div>
 		</div>
-
-			<div class="card bg-card border-0 mb-4 shadow-form">
-    			<div class="px-3 py-3">
-    				<div class="num-page border-bottom">
-    					<div>3</div>
-    					<p>Pilih Pembayaran</p>
-    				</div>
-    				<div class="row mt-4">
-				
-				@auth
-				<div class="accordion mb-3" id="accordionExample-1" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);border-radius: 6px;">
-        					<div class="accordion-item border-0">
-        						<h2 class="accordion-header" id="heading-balance">
-        							<button class="accordion-button collapsed bg-white-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-balance" aria-expanded="false" aria-controls="collapse-balance">
-        								<div class="accordion-tipe">Saldo</div>
-							</button>
-						</h2>
-						<div id="collapse-balance" class="accordion-collapse collapse" aria-labelledby="heading-balance" data-bs-parent="#accordionExample-balance">
-							<div class="accordion-body bg-payment">
-        								<div class="row">
-        	<div class="col-6 col-md-3 col-lg-4">
-										<div id="method-balance" class="p-2 border rounded mb-3 method-list bg-light shadow-sm" method-id="SALDO">
-											<table class="w-100 border-bottom mb-2">
-												<tr>
-													<td>
-														<img src="/assets/payment/saldo-akun.png" alt="" class="w-75">
-													</td>
-													<td>
-														<b style="font-size: 12px;white-space: nowrap;" method-price="balance" id="SALDO"></b>
-													</td>
-												</tr>
-											</table>
-											<div style="font-size: 12px;color: #718096;">
-												<b class="d-block mb-2">Saldo Akun</b>
-												<b class="d-block">Proses otomatis</b>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="bg-payment p-2 text-end border-0 text-nowrap" style="border-radius: 0 0 6px 6px;overflow-x: auto">
-						<img src="/assets/payment/saldo-akun.png" alt="" width="64">
-					</div>
-				</div>
-				@endauth
-				
-				<div class="accordion mb-3" id="accordionExample-1" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);border-radius: 6px;">
-        					<div class="accordion-item border-0">
-						<h2 class="accordion-header" id="heading-qris">
-							<button class="accordion-button collapsed bg-white-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-qris" aria-expanded="false" aria-controls="collapse-ewallet">
-								<div class="accordion-tipe">QRIS</div>
-							</button>
-						</h2>
-						<div id="collapse-qris" class="accordion-collapse collapse" aria-labelledby="heading-qris" data-bs-parent="#accordionExample-1">
-							<div class="accordion-body bg-payment">
-								<div class="row">
-								    @foreach($pay_method as $p)
-								    @if($p->tipe == 'qris')
-								<div class="col-6 col-md-3 col-lg-4">
-										<div id="method-23" class="p-2 border rounded mb-3 method-list bg-light shadow-sm"  method-id="{{$p->code}}">
-											<table class="w-100 border-bottom mb-2">
-												<tr>
-													<td>
-														<img src="{{$p->images}}" alt="" class="w-75">
-													</td>
-													<td>
-														<b style="font-size: 12px;white-space: nowrap;" id="{{$p->code}}"></b>
-													</td>
-												</tr>
-											</table>
-											<div style="font-size: 12px;color: #718096;">
-												<b class="d-block mb-2">{{$p->name}}</b>
-												<b class="d-block">{{$p->keterangan}}</b>
-											</div>
-										</div>
-									</div>
-									@endif
-									@endforeach
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="bg-payment p-2 text-end border-0 text-nowrap" style="border-radius: 0 0 6px 6px;overflow-x: auto">
-					    @foreach($pay_method as $p)
-                        @if($p->tipe == 'qris')
-						<img src="{{$p->images}}" alt="" width="64">
-						@endif
-                        @endforeach
-					</div>
-				</div>
-				
-				<div class="accordion mb-3" id="accordionExample-1" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);border-radius: 6px;">
-					<div class="accordion-item border-0">
-						<h2 class="accordion-header" id="heading-ewallet">
-							<button class="accordion-button collapsed bg-white-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ewallet" aria-expanded="false" aria-controls="collapse-ewallet">
-								<div class="accordion-tipe">E-Wallet</div>
-							</button>
-						</h2>
-						<div id="collapse-ewallet" class="accordion-collapse collapse" aria-labelledby="heading-ewallet" data-bs-parent="#accordionExample-1">
-							<div class="accordion-body bg-payment">
-								<div class="row">
-								    @foreach($pay_method as $p)
-								    @if($p->tipe == 'e-walet')
-								<div class="col-6 col-md-3 col-lg-4">
-										<div id="method-23" class="p-2 border rounded mb-3 method-list bg-light shadow-sm"  method-id="{{$p->code}}">
-											<table class="w-100 border-bottom mb-2">
-												<tr>
-													<td>
-														<img src="{{$p->images}}" alt="" class="w-75">
-													</td>
-													<td>
-														<b style="font-size: 12px;white-space: nowrap;" id="{{$p->code}}"></b>
-													</td>
-												</tr>
-											</table>
-											<div style="font-size: 12px;color: #718096;">
-												<b class="d-block mb-2">{{$p->name}}</b>
-												<b class="d-block">{{$p->keterangan}}</b>
-											</div>
-										</div>
-									</div>
-									@endif
-									@endforeach
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="bg-payment p-2 text-end border-0 text-nowrap" style="border-radius: 0 0 6px 6px;overflow-x: auto">
-					    @foreach($pay_method as $p)
-                        @if($p->tipe == 'e-walet')
-						<img src="{{$p->images}}" alt="" width="64">
-						@endif
-                        @endforeach
-					</div>
-				</div>
-				
-				<div class="accordion mb-3" id="accordionExample-1" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);border-radius: 6px;">
-					<div class="accordion-item border-0">
-						<h2 class="accordion-header" id="heading-convenience-store">
-							<button class="accordion-button collapsed bg-white-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-convenience-store" aria-expanded="false" aria-controls="collapse-convenience-store">
-								<div class="accordion-tipe">Convenience Store</div>
-							</button>
-						</h2>
-						<div id="collapse-convenience-store" class="accordion-collapse collapse" aria-labelledby="heading-convenience-store" data-bs-parent="#accordionExample-2">
-							<div class="accordion-body bg-payment">
-								<div class="row">
-								    @foreach($pay_method as $p)
-								    @if($p->tipe == 'convenience-store')
-								<div class="col-6 col-md-3 col-lg-4">
-										<div id="method-12" class="p-2 border rounded mb-3 method-list bg-light shadow-sm"  method-id="{{$p->code}}">
-											<table class="w-100 border-bottom mb-2">
-												<tr>
-													<td>
-														<img src="{{$p->images}}" alt="" class="w-75">
-													</td>
-													<td>
-														<b style="font-size: 12px;white-space: nowrap;" id="{{$p->code}}"></b>
-													</td>
-												</tr>
-											</table>
-											<div style="font-size: 12px;color: #718096;">
-												<b class="d-block mb-2">{{$p->name}}</b>
-												<b class="d-block">{{$p->keterangan}}</b>
-											</div>
-										</div>
-									</div>
-									@endif
-									@endforeach
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="bg-payment p-2 text-end border-0 text-nowrap" style="border-radius: 0 0 6px 6px;overflow-x: auto">
-					    @foreach($pay_method as $p)
-						@if($p->tipe == 'convenience-store')
-						<img src="{{$p->images}}" alt="" width="64">
-						@endif
-						@endforeach
-					</div>
-				</div>
-								
-				<div class="accordion mb-3" id="accordionExample-1" disabled style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06);border-radius: 6px;">
-					<div class="accordion-item border-0">
-						<h2 class="accordion-header" id="heading-virtual-account">
-							<button class="accordion-button collapsed bg-white-custom text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-virtual-account" aria-expanded="false" aria-controls="collapse-virtual-account">
-								<div class="accordion-tipe">Virtual Account</div>
-							</button>
-						</h2>
-						<div id="collapse-virtual-account" class="accordion-collapse collapse" aria-labelledby="heading-virtual-account" data-bs-parent="#accordionExample-5">
-							<div class="accordion-body bg-payment">
-								<div class="row">
-								    @foreach($pay_method as $p)
-						            @if($p->tipe == 'virtual-account')
-						<div class="col-6 col-md-3 col-lg-4">
-										<div id="method-21" class="p-2 border rounded mb-3 method-list bg-light shadow-sm"  method-id="{{$p->code}}">
-											<table class="w-100 border-bottom mb-2">
-												<tr>
-													<td>
-														<img src="{{$p->images}}" alt="" class="w-75">
-													</td>
-													<td>
-														<b style="font-size: 12px;white-space: nowrap;" id="{{$p->code}}"></b>
-													</td>
-												</tr>
-											</table>
-											<div style="font-size: 12px;color: #718096;">
-												<b class="d-block mb-2">{{$p->name}}</b>
-												<b class="d-block">{{$p->keterangan}}</b>
-											</div>
-										</div>
-									</div>
-									@endif
-						            @endforeach
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="bg-payment p-2 text-end border-0 text-nowrap" style="border-radius: 0 0 6px 6px;overflow-x: auto">
-					    @foreach($pay_method as $p)
-						@if($p->tipe == 'virtual-account')
-						<img src="{{$p->images}}" alt="" width="64">
-						@endif
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 							
 			<div class="card bg-card border-0 shadow-form">			
     			<div class="px-3 pt-3" style="margin-bottom: 15px;">
     				<div class="num-page border-bottom">
-    					<div>4</div>
-    					<p>No Whatsapp</p>
+    					<div>3</div>
+    					<p>Tanggal Pembelian</p>
     				</div>
     				<div class="mt-3">
-        			    <input type="number" class="form-control" placeholder="08xXXXXXXX" id="nomor" autocomplete="off" name="whatsapp">
-        				<p class="mt-3" style="font-size: 13px;color: var(--warna_4);">Bukti pembayaran atas pembelian anda akan kami kirimkan ke WhatsApp anda.</p>
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" autocomplete="off" value="<?php echo date('Y-m-d'); ?>">
+                        <p class="mt-3" style="font-size: 13px; color: var(--warna_4);">Harap mengirimkan bukti transfer pada tanggal yang sama.</p>                        
     				</div>
     			<button class="btn btn-order btn-primary" type="button" id="btn-order">Beli</button>
     			</div>
@@ -1011,100 +773,118 @@
 </div>
         
 
-
-
-
-
-
 @push('custom_script')
 
 <script>
+
 function removeClass(){  
     btnorder.className = btnorder.className.replace(new RegExp('(?:^|\\s)loading(?!\\S)'), '');
 }
 
 var btnorder = document.getElementById('btn-order');
 
+$('.product-list').click(function() {
+    // Hapus kelas "active" dari semua elemen produk
+    $('.product-list').removeClass('active');
+
+    // Tambahkan kelas "active" pada elemen produk yang diklik
+    $(this).addClass('active');
+
+    // Dapatkan nilai "product-id" dari elemen produk yang diklik
+    const prd = $(this).attr('product-id');
+
+    // Dapatkan nilai layanan dan harga dari elemen anak yang sesuai
+    const layanan = $(this).find('b').text().trim();
+    const harga = $(this).find('.harga').text().trim();
+
+    // Set nilai "nominal" ke nilai "product-id" yang dipilih
+    $('#nominal').val(prd);
+
+    // Kirim permintaan Ajax untuk mendapatkan harga
+    $.ajax({
+        url: "<?php echo route('ajax.price') ?>",
+        dataType: "json",
+        type: "POST",
+        data: {
+            "_token": "<?php echo csrf_token() ?>",
+            "nominal": prd
+        },
+        success: function(res) {
+            // Ganti harga dengan hasil dari permintaan Ajax
+            changeHarga(res.harga);
+        }
+    });
+});
 
 btnorder.addEventListener("click", function() {
     btnorder.className = btnorder.className + ' loading';
     setTimeout(removeClass, 5000);
-}, false);
-</script>
 
-<script>
-    
-     function changeHarga(harga,hargareal)
-    {
-        $("#SALDO").html(harga);
-        $("#OVO").html(harga);
-        $("#GOPAY").html(harga);
-        $("#SHOPEEPAY").html(harga);
-        $("#QRIS").html(harga);
-        $("#QRIS2").html(harga);
-        $("#MYBVA").html(harga);
-        $("#PERMATAVA").html(harga);
-        $("#BNIVA").html(harga);
-        $("#BRIVA").html(harga);
-        $("#MANDIRIVA").html(harga);
-        $("#SMSVA").html(harga);
-        $("#MUAMALATVA").html(harga);
-        $("#CIMBVA").html(harga);
-        $("#SAMPOERNAVA").html(harga);
-        $("#BSIVA").html(harga);
-        $("#ALFAMART").html(harga);
-        $("#ALFAMIDI").html(harga);
-        $("#INDOMARET").html(harga);
-    }
-    
-    
-     $('.accordion-button').css('pointer-events','none');
-     $('.accordion-header').addClass('hide-payment');
-     
-    
-    $('.product-list').click(function(){
-        
-        $('.accordion-button').css('pointer-events','auto');
-        $('.accordion-header').removeClass('hide-payment');
-        
-       const prd = $(this).attr('product-id');
-       $('.product-list').removeClass('active');
-       $(this).addClass('active');
-       
-       $('#nominal').val(prd);
-       
-       $.ajax({
-                    url: "<?php echo route('ajax.price') ?>",
-                    dataType: "json",
-                    type: "POST",
-                    data: {
-                        "_token": "<?php echo csrf_token() ?>",
-                        "nominal": prd
-                    },
-                    success: function(res) {
-                        changeHarga(res.harga);
-                    }
-                })
-       
-       
-    });
-    
-    
-    $('.accordion-header').click(function(){
-       
-        if($(this).hasClass('hide-payment')){
-            
-            toastr.options.positionClass = "toast-top-right";
-            toastr.options.closeButton = true;
-            
-            toastr.warning('Mohon untuk pilih item terlebih dahulu');
-            
+    // Dapatkan elemen produk yang sedang aktif (memiliki kelas "active")
+    var activeProduct = document.querySelector('.product-list.active');
+
+    // Dapatkan nilai "product-id" dari elemen produk yang aktif
+    var selectedItem = activeProduct ? activeProduct.getAttribute('product-id') : null;
+    var layanans = activeProduct ? activeProduct.querySelector('b').innerText : null;
+    var hargas = activeProduct ? activeProduct.querySelector('.harga').innerText : null;
+
+    // Dapatkan nilai dari elemen input tanggal
+    var tanggalElement = document.getElementById('tanggal');
+    var tanggal = tanggalElement ? tanggalElement.value : null;
+
+    // Dapatkan nilai dari elemen input user_id
+    var user_idElement = document.getElementById('user_id');
+    var user_id = user_idElement ? user_idElement.value : null;
+
+    // Dapatkan nilai dari elemen input zone
+    var serverElement = document.getElementById('zone');
+    var server_id = serverElement ? serverElement.value : null;
+
+    var isLoggedIn = "{{ auth()->check() }}";
+
+    // Memeriksa apakah semua input sudah diisi
+
+    if ( !isLoggedIn )
+        {
+            // Tampilkan notifikasi Toastr jika ada data yang kosong
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                "closeButton": false,
+                "progressBar": true,
+            }
+            toastr["error"]("Anda belum login, silahkan login terlebih dahulu", "Warning");
         }
-        
-    });
+    else if (selectedItem && layanans && hargas && tanggal && user_id && server_id) {
+
+        // Dapatkan nama pengguna yang login
+        var username = @if(auth()->check()) "{{ auth()->user()->name }}" @else null @endif;
+
+        // Buat pesan dengan nama pengguna, item yang dipilih, tanggal, dan lainnya
+        var message = 'Halo, Saya ' + username + '! \nSaya ingin memesan \n\n' + layanans + ' \nHarga : ' + hargas + '\n\nUID : ' + user_id + ' (' + server_id + ')' + '\nTanggal Beli : ' + tanggal;
+
+        // Ganti nomor WhatsApp dan format chat sesuai kebutuhan
+        var phoneNumber = '6282114903130';  // Ganti dengan nomor WhatsApp tujuan
+
+        // Buat URL WhatsApp dengan nomor dan pesan
+        var whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+
+        // Arahkan ke WhatsApp
+        window.location.href = whatsappUrl;
+    } else {
+        // Tampilkan notifikasi Toastr jika ada data yang kosong
+        toastr.options = {
+            "positionClass": "toast-bottom-right",
+            "closeButton": false,
+            "progressBar": true,
+        }
+        toastr["error"]("Masih ada data yang kosong", "Warning");
+    }
+}, false);
+
+</script>
     
-    
-    
+<script>
+
     $('.method-list').click(function(){
         
        const mtd = $(this).attr('method-id');
@@ -1267,16 +1047,6 @@ btnorder.addEventListener("click", function() {
                         });
                     }
                 },
-                error: function(e) {
-                    if (e.status == 422) {
-                        toastr.options = {
-                            "positionClass": "toast-top-right",
-                            "closeButton": false,
-                            "progressBar": true,
-                        }
-                        toastr["error"]("Masih ada data yang kosong", "Warning");
-                    }
-                }
             })
         })
         

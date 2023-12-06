@@ -59,25 +59,12 @@
             <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
-          </li>
-                    <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/riwayat-pembelian')); ?>"><i class="fa-solid fa-clock-rotate-left"></i> Riwayat Pembelian</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/deposit')); ?>"><i class="fa-solid fa-wallet"></i> Top Up Saldo</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/membership')); ?>"><i class="fa-solid fa-circle-up"></i> Upgrade Membership</a>
           </li>
           <div class="card bg-card mt-2 mb-2">
             <div class="card-body">
                 <span class="py-1 px-2 float-end rounded bg-warning text-dark" style="font-size: 12px;"><?php echo e(Str::title(Auth()->user()->role)); ?></span>
                 <h5 class="card-title"><?php echo e(Str::title(Auth()->user()->name)); ?></h5>
-                <p class="card-text">Rp <?php echo e(number_format(Auth::user()->balance, 0, ',', '.')); ?></p>
              </div>
           </div>
                     
@@ -90,7 +77,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="<?php echo e(url('/dashboard')); ?>"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -132,7 +119,7 @@
             <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-primary" href="<?php echo e(url('/dashboard')); ?>"><i class="fa-solid fa-arrow-right-to-bracket"></i> Dashboard</a>
@@ -143,7 +130,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
         <a class="nav-link text-primary" href="<?php echo e(url('/dashboard')); ?>"><i class="fa-solid fa-arrow-right-to-bracket""></i> Dashboard</a>
 </div>
   </div>
@@ -187,7 +174,7 @@
             <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass"></i> Cek Pesanan</a>
+            <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo e(url('/login')); ?>"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
@@ -198,7 +185,7 @@
     <div class="collapse navbar-collapse text-right d-none d-md-none d-lg-block">
       <div class="navbar-nav ms-auto nav-stacked">
         <a class="nav-link" href="<?php echo e(url('')); ?>"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="nav-link" href="<?php echo e(url('/cari')); ?>"><i class="fa-solid fa-magnifying-glass""></i> Cek Pesanan</a>
+        <a class="nav-link" href="<?php echo e(url('/user/edit/profile')); ?>"><i class="fa-solid fa-user-pen"></i> Edit Profile</a>
          <a class="nav-link" href="<?php echo e(url('/login')); ?>"><i class="fa-solid fa-arrow-right-to-bracket""></i> Login</a>
 </div>
   </div>
@@ -229,28 +216,7 @@
                     
                 </div>
             </section>        
-            <section class="px-2 mt-5" style="">
-                <h4 class="mb-2 text-white" style="font-size: 1.7rem;">Joki MLBB</h4>
-                <div class="product row mt-4">
-                    
-                    <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    
-                    <?php if($category->tipe == "joki"): ?>
-                    
-                    <div class="col-4 col-md-3 col-lg-2">
-                    <div class="card-product">
-                        <a href="<?php echo e(url('/order')); ?>/<?php echo e($category->kode); ?>" class="box">
-                            <img class="shadow-sm lazy" src="<?php echo e($category->thumbnail); ?>" loading="lazy" alt="<?php echo e($category->nama); ?>">
-                        </a>
-                    </div>
-                    </div>
-                               
-                    <?php endif; ?>
-                             
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>             
-                    
-                </div>
-            </section>        
+            
           
         </div>    
         
